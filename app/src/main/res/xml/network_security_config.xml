@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- 开发环境：允许本地网络的明文通信 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- 本机地址 -->
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        
+        <!-- 常见的局域网IP范围 -->
+        <domain includeSubdomains="true">192.168.1.1</domain>
+        <domain includeSubdomains="true">192.168.2.19</domain>
+        <domain includeSubdomains="true">192.168.0.1</domain>
+        
+        <!-- 如果需要支持其他IP，请在这里添加 -->
+        <!-- <domain includeSubdomains="true">YOUR_SERVER_IP</domain> -->
+    </domain-config>
+    
+    <!-- 全局配置：生产环境应该禁用明文通信 -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- 信任系统证书 -->
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+    
+    <!-- 调试配置：如果需要允许所有明文通信，取消下面的注释 -->
+    <!-- 
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+    -->
+</network-security-config>

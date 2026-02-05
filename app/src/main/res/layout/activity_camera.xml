@@ -11,6 +11,14 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
+    <!-- 视频播放区域 -->
+    <com.example.inmo.ProcessedVideoView
+        android:id="@+id/processedVideoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
     <!-- 顶部状态栏 -->
     <LinearLayout
         android:id="@+id/topBar"
@@ -18,25 +26,44 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="#80000000"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="INMO AIR3 摄像头预览"
+            android:text="INMO AIR3 实时视频处理"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center" />
 
-        <TextView
-            android:id="@+id/cameraStatus"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="摄像头ID: 0"
-            android:textColor="#00FF00"
-            android:textSize="12sp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/cameraStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="摄像头ID: 0"
+                android:textColor="#00FF00"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/recordingStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="状态: 待机"
+                android:textColor="#FFFF00"
+                android:textSize="12sp"
+                android:gravity="end" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -52,21 +79,40 @@
         android:padding="20dp">
 
         <Button
-            android:id="@+id/btnCapture"
+            android:id="@+id/btnStartRecording"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="#FF4444"
-            android:text="拍照"
+            android:text="开始录制"
             android:textColor="#FFFFFF" />
 
         <Button
-            android:id="@+id/btnSwitchCamera"
+            android:id="@+id/btnStopRecording"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#FF8800"
+            android:text="停止录制"
+            android:textColor="#FFFFFF"
+            android:enabled="false" />
+
+        <Button
+            android:id="@+id/btnPermissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#8844FF"
+            android:text="权限"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnSwitchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="#4444FF"
-            android:text="切换摄像头"
+            android:text="切换视图"
             android:textColor="#FFFFFF" />
 
         <Button

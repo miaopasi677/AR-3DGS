@@ -53,11 +53,11 @@ fun MainContent(modifier: Modifier = Modifier) {
         val context = LocalContext.current
         Button(
             onClick = {
-                val intent = Intent(context, CameraActivity::class.java)
+                val intent = Intent(context, StreamingCameraActivity::class.java)
                 context.startActivity(intent)
             }
         ) {
-            Text("打开INMO AIR3摄像头")
+            Text("INMO AIR3 实时视频流")
         }
     }
 }
